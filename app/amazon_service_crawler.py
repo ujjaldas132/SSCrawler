@@ -23,12 +23,12 @@ services_block = soup.findAll('div', {'class': 'highlights'})
 services = services_block[0].find_all('li')
 
 for service in services:
-    for a in service.find_all('a'):
+    for prefix_service in service.find_all('a'):
         prefixObj = Prefix()
-        prefix_name = str(a.text)
+        prefix_name = str(prefix_service.text)
         prefixObj.prefix = prefix_name
 
-        next_url= "https://docs.aws.amazon.com/service-authorization/latest/reference"+ a['href'].split(".")[1]
+        next_url= "https://docs.aws.amazon.com/service-authorization/latest/reference"+ prefix_service['href'].split(".")[1]
         prefixObj.link.append(str(next_url))
 
         print(next_url)
