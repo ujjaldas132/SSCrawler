@@ -25,7 +25,6 @@ class Prefix :
         self.resources = []
         self.conditions = []
 
-
 class Resource:
     def __init__(self):
         self.resourceType = ""
